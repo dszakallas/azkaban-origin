@@ -4,3 +4,4 @@ resources:
   - ../all
 patchesStrategicMerge:
   - ./patch-admin-dev.yaml
+  - ./patch-gotk-sync-dev.yaml
