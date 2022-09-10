@@ -1,0 +1,14 @@
+{{- /* A comment to users */}}<!-- Generated file. Do not edit. If you wish to add extra info provide it in _extra.gotmpl -->
+{{- define "extra.info" }}{{ end }}
+{{- define "extra.footer" }}{{ end }}
+{{ template "chart.header" . }}
+{{ template "chart.description" . }}
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+{{- if "extra.info" }}
+{{ template "extra.info" . }}
+{{- end }}
+{{ template "chart.requirementsSection" . }}
+{{ template "chart.valuesSection" . }}
+{{- if "extra.footer" }}
+{{- template "extra.footer" . }}
+{{- end }}

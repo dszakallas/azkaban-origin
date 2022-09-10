@@ -1,0 +1,11 @@
+# -- RBAC configuration
+rbac:
+  cluster:
+    # -- Clusterwide role bindings.
+    roleBindings: []
+
+  # -- Map of namespaces and their role and identity configurations.
+  namespace: {}
+
+# -- Namespace configuration. Key value pair of namespace name and configuration.
+namespaces: {}

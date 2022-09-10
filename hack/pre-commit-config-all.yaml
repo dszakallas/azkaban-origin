@@ -1,0 +1,48 @@
+default_stages: [commit, push]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: check-json
+        exclude: \/templates\/.*$
+      - id: check-yaml
+        exclude: \/templates\/.*$
+        args:
+          - --multi
+      - id: check-executables-have-shebangs
+  - repo: local
+    hooks:
+      - id: json-schema-for-humans-md
+        name: Generate Markdown from JSON schema
+        types:
+          - text
+          - file
+        language: script
+        entry: ./hack/regenerate-schema-doc-md.sh
+        files: values\.schema\.json$
+        pass_filenames: true
+      - id: kustomize
+        name: Validate Kustomizations
+        language: script
+        entry: ./hack/validate-kustomizations.sh
+        require_serial: true
+      - id: helm
+        name: Validate Helm charts
+        language: script
+        entry: ./hack/validate-helm-chart.py
+        files: \/chart\/.*$
+        pass_filenames: true
+        require_serial: true
+      - id: helm-docs
+        name: Regenerate Helm docs
+        language: script
+        entry: ./hack/regenerate-helm-doc.py
+        files: \/chart\/.*$
+        pass_filenames: true
+        require_serial: true
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: check-added-large-files
+      - id: trailing-whitespace
+      - id: end-of-file-fixer

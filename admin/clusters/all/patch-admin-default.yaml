@@ -1,0 +1,11 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: azkaban-admin
+  namespace: default
+spec:
+  values:
+    namespaces:
+      infra: {}
+      cert-manager: {}
+      fluent-bit: {}

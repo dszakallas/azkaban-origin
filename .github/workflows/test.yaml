@@ -1,0 +1,26 @@
+name: Check
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [ '*' ]
+    tags-ignore: [ '*' ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container:
+      image: midiparse/azkaban-ci:latest
+      credentials:
+        username: ${{ secrets.DOCKERHUB_USER }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit-3|${{ hashFiles('hack/pre-commit-config-all.yaml') }}
+      - name: Run checks
+        run: pre-commit run --all-files --show-diff-on-failure --verbose --config hack/pre-commit-config-all.yaml

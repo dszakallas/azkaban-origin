@@ -1,0 +1,20 @@
+{{- if .Values.rbac }}
+{{- if .Values.rbac.namespace }}
+{{- range $namespace, $spec := .Values.rbac.namespace }}
+{{- range $spec.roleBindings }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: azkaban-admin:rb-{{ .role }}
+  namespace: {{ $namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: {{ .kind }}
+  name: {{ .role }}
+subjects:
+{{ toYaml .subjects | indent 2 }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
