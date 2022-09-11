@@ -9,3 +9,4 @@ spec:
       infra: {}
       cert-manager: {}
       fluent-bit: {}
+      metallb-system: {}

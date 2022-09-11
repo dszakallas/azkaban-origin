@@ -5,4 +5,5 @@ resources:
   - ../../notifications.yaml
   - ../../cert-manager
   - ../../fluent-bit
+  - ../../metallb
 patchesStrategicMerge: []
