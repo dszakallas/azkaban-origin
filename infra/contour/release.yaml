@@ -1,15 +1,15 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: fluent-bit
+  name: contour
 spec:
   chart:
     spec:
-      version: "0.20.x"
-      chart: fluent-bit
+      version: "9.1.2"
+      chart: contour
       sourceRef:
         kind: HelmRepository
-        name: fluent
+        name: bitnami
         namespace: infra
   interval: 5m
   timeout: 10m

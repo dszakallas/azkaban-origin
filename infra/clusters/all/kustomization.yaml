@@ -6,4 +6,5 @@ resources:
   - ../../cert-manager
   - ../../fluent-bit
   - ../../metallb
+  - ../../contour
 patchesStrategicMerge: []

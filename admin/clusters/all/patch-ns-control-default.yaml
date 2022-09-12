@@ -10,3 +10,4 @@ spec:
       cert-manager: {}
       fluent-bit: {}
       metallb-system: {}
+      contour: {}
