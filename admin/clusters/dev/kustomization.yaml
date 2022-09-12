@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - ../all
 patchesStrategicMerge:
-  - ./patch-admin-dev.yaml
+  - ./patch-ns-control-dev.yaml
   - ./patch-gotk-sync-dev.yaml
