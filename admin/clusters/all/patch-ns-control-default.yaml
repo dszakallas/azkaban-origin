@@ -11,3 +11,4 @@ spec:
       fluent-bit: {}
       metallb-system: {}
       contour: {}
+      kured: {}

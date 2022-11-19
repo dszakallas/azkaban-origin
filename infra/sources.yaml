@@ -43,3 +43,12 @@ metadata:
 spec:
   interval: 60m
   url: https://kubernetes-sigs.github.io/metrics-server/
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: kubereboot
+  namespace: infra
+spec:
+  interval: 60m
+  url: https://kubereboot.github.io/charts

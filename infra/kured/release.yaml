@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kured
+spec:
+  chart:
+    spec:
+      version: "4.0.4"
+      chart: kured
+      sourceRef:
+        kind: HelmRepository
+        name: kubereboot
+        namespace: infra
+  interval: 5m
+  timeout: 10m
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3

@@ -8,4 +8,5 @@ resources:
   - ../../metallb
   - ../../contour
   - ../../metrics-server
+  - ../../kured
 patchesStrategicMerge: []
