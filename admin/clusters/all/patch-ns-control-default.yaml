@@ -12,3 +12,4 @@ spec:
       metallb-system: {}
       contour: {}
       kured: {}
+      opa-gatekeeper-system: {}

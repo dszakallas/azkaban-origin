@@ -52,3 +52,12 @@ metadata:
 spec:
   interval: 60m
   url: https://kubereboot.github.io/charts
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: opa-gatekeeper
+  namespace: infra
+spec:
+  interval: 60m
+  url: https://open-policy-agent.github.io/gatekeeper/charts

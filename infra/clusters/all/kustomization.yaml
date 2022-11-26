@@ -9,4 +9,5 @@ resources:
   - ../../contour
   - ../../metrics-server
   - ../../kured
+  - ../../opa-gatekeeper
 patchesStrategicMerge: []

@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: opa-gatekeeper-system
+spec:
+  chart:
+    spec:
+      version: "3.10.x"
+      chart: gatekeeper
+      sourceRef:
+        kind: HelmRepository
+        name: opa-gatekeeper
+        namespace: infra
+  interval: 5m
+  timeout: 10m
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
