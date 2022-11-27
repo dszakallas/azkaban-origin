@@ -3,6 +3,7 @@ kind: K8sPodBadImageTag
 metadata:
   name: k8spodbadimagetag
 spec:
+  enforcementAction: warn
   match:
     kinds:
       - apiGroups: [""]
